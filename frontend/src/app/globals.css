@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --foreground: #f4f4f5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+.brain-shell {
+  box-shadow:
+    0 20px 70px rgba(244, 114, 182, 0.25),
+    inset 0 0 28px rgba(255, 255, 255, 0.12);
+}
+
+.rank-badge {
+  animation: rankPulse 2.6s ease-in-out infinite;
+}
+
+.pulse-line {
+  animation: linePulse 1.7s ease-in-out infinite;
+}
+
+.brain-wobble {
+  animation: wobble 4.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.brain-wobble-intense {
+  animation-duration: 2.1s;
+}
+
+.brain-glitch {
+  animation: glitch 0.5s steps(2, jump-none) infinite;
+}
+
+.brain-fire::after {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(251, 191, 36, 0.5), transparent 60%),
+    radial-gradient(circle at 70% 40%, rgba(249, 115, 22, 0.45), transparent 56%);
+  filter: blur(14px);
+  z-index: -1;
+}
+
+.deep-fry-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.06) 0,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+}
+
+.ekg-line {
+  --ekg-color: #4ade80;
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 3%,
+      color-mix(in oklab, var(--ekg-color) 55%, transparent) 3%,
+      color-mix(in oklab, var(--ekg-color) 55%, transparent) 97%,
+      transparent 97%,
+      transparent 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 12%,
+      var(--ekg-color) 12%,
+      var(--ekg-color) 13%,
+      transparent 13%,
+      transparent 26%,
+      var(--ekg-color) 26%,
+      var(--ekg-color) 27%,
+      transparent 27%,
+      transparent 40%,
+      var(--ekg-color) 40%,
+      var(--ekg-color) 41%,
+      transparent 41%,
+      transparent 54%,
+      var(--ekg-color) 54%,
+      var(--ekg-color) 55%,
+      transparent 55%,
+      transparent 68%,
+      var(--ekg-color) 68%,
+      var(--ekg-color) 69%,
+      transparent 69%,
+      transparent 100%
+    );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 38%,
+    black 38%,
+    black 62%,
+    transparent 62%,
+    transparent 100%
+  );
+  animation: ekgShift 1.2s linear infinite;
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+@keyframes linePulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes rankPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(217, 70, 239, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(217, 70, 239, 0.7);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  50% {
+    transform: translateX(1px);
+  }
+  75% {
+    transform: translateX(-1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes ekgShift {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-28%);
+  }
+}
+
+/* ─── Content feed styles ─── */
+
+.thumbnail-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnail-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.12) 45%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.12) 55%,
+    transparent 70%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.feed-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  scroll-snap-type: x proximity;
+}
+
+.feed-scroll > * {
+  scroll-snap-align: start;
+}
+
+.feed-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.feed-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.feed-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  60%,
+  100% {
+    transform: translateX(120%);
+  }
+}

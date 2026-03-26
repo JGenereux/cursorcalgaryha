@@ -1,0 +1,56 @@
+[
+  {
+    "id": "user-jace",
+    "name": "Jace Genereux",
+    "username": "jacegenereux",
+    "avatarUrl": "https://api.dicebear.com/9.x/avataaars/svg?seed=Jace",
+    "cookedScore": 42,
+    "postsConsumed": 137,
+    "isMainUser": true
+  },
+  {
+    "id": "user-riley",
+    "name": "Riley Thompson",
+    "username": "rileyt",
+    "avatarUrl": "https://api.dicebear.com/9.x/avataaars/svg?seed=Riley",
+    "cookedScore": 87,
+    "postsConsumed": 412,
+    "isMainUser": false
+  },
+  {
+    "id": "user-maya",
+    "name": "Maya Chen",
+    "username": "mayac",
+    "avatarUrl": "https://api.dicebear.com/9.x/avataaars/svg?seed=Maya",
+    "cookedScore": 23,
+    "postsConsumed": 56,
+    "isMainUser": false
+  },
+  {
+    "id": "user-devon",
+    "name": "Devon Patel",
+    "username": "devonp",
+    "avatarUrl": "https://api.dicebear.com/9.x/avataaars/svg?seed=Devon",
+    "cookedScore": 95,
+    "postsConsumed": 689,
+    "isMainUser": false
+  },
+  {
+    "id": "user-sam",
+    "name": "Sam Nguyen",
+    "username": "samn",
+    "avatarUrl": "https://api.dicebear.com/9.x/avataaars/svg?seed=Sam",
+    "cookedScore": 61,
+    "postsConsumed": 234,
+    "isMainUser": false
+  },
+  {
+    "id": "user-alex",
+    "name": "Alex Rivera",
+    "username": "alexr",
+    "avatarUrl": "https://api.dicebear.com/9.x/avataaars/svg?seed=Alex",
+    "cookedScore": 15,
+    "postsConsumed": 28,
+    "isMainUser": false
+  }
+]
